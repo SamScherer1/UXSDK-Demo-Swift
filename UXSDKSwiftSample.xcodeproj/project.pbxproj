@@ -13,7 +13,6 @@
 		A452DC3A2070D8CC00EFBA30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A452DC272070D8CB00EFBA30 /* LaunchScreen.storyboard */; };
 		A452DC3C2070D8CC00EFBA30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A452DC2B2070D8CB00EFBA30 /* Main.storyboard */; };
 		A452DC3F2070D8CC00EFBA30 /* DefaultLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452DC2E2070D8CB00EFBA30 /* DefaultLayoutViewController.swift */; };
-		A452DC462070D8CC00EFBA30 /* ProductCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452DC352070D8CB00EFBA30 /* ProductCommunicationService.swift */; };
 		C537F86D3BA2C8DFBA75E137 /* Pods_UXSDKSwiftSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106195AB0439F61EC0D8AE43 /* Pods_UXSDKSwiftSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		A452DC2B2070D8CB00EFBA30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A452DC2E2070D8CB00EFBA30 /* DefaultLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLayoutViewController.swift; sourceTree = "<group>"; };
 		A452DC2F2070D8CB00EFBA30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A452DC352070D8CB00EFBA30 /* ProductCommunicationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCommunicationService.swift; sourceTree = "<group>"; };
 		B8F1D33CDE5BBBD982817142 /* Pods-UXSDKSwiftSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UXSDKSwiftSample.debug.xcconfig"; path = "Target Support Files/Pods-UXSDKSwiftSample/Pods-UXSDKSwiftSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +104,6 @@
 				A452DC272070D8CB00EFBA30 /* LaunchScreen.storyboard */,
 				A452DC2F2070D8CB00EFBA30 /* Info.plist */,
 				53ECE277233DB8B500E278CD /* Helpers.swift */,
-				A452DC352070D8CB00EFBA30 /* ProductCommunicationService.swift */,
 			);
 			path = UXSDKSwiftSample;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A452DC462070D8CC00EFBA30 /* ProductCommunicationService.swift in Sources */,
 				53ECE278233DB8B500E278CD /* Helpers.swift in Sources */,
 				A452DC382070D8CC00EFBA30 /* AppDelegate.swift in Sources */,
 				A452DC3F2070D8CC00EFBA30 /* DefaultLayoutViewController.swift in Sources */,
