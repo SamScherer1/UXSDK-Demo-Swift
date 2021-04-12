@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oxe-pl-Lvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oxe-pl-Lvc">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,17 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkn-Gf-7Ub">
-                                <rect key="frame" x="20" y="50" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="5nT-My-hB8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="❌"/>
-                                <connections>
-                                    <action selector="close" destination="oxe-pl-Lvc" eventType="touchUpInside" id="FPh-XN-kCh"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="coW-fP-rlj">
                                 <rect key="frame" x="117" y="50" width="510" height="30"/>
                                 <subviews>
@@ -76,14 +66,14 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9j-s5-8k0" customClass="DUXManualFocusAdjustmentWidget">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="t6V-zj-7fW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-Qo-e4B" customClass="DUXManualZoomWidget">
                                         <rect key="frame" x="45" y="0.0" width="30" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="az2-XZ-e0f"/>
                                         </constraints>
@@ -97,12 +87,9 @@
                         <color key="backgroundColor" red="0.076183750179999996" green="0.077627680690000006" blue="0.077963082899999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RLa-Db-jMm" firstAttribute="top" secondItem="coW-fP-rlj" secondAttribute="bottom" constant="15" id="0bL-9f-aV5"/>
-                            <constraint firstItem="gkn-Gf-7Ub" firstAttribute="width" secondItem="gkn-Gf-7Ub" secondAttribute="height" multiplier="1:1" id="Sel-hg-0n8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="coW-fP-rlj" secondAttribute="trailing" constant="20" id="eyl-SZ-aD0"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="gkn-Gf-7Ub" secondAttribute="leading" id="nBK-aJ-o33"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RLa-Db-jMm" secondAttribute="trailing" constant="65" id="pVl-y2-5Cn"/>
                             <constraint firstItem="coW-fP-rlj" firstAttribute="top" secondItem="7Sr-Ty-PuV" secondAttribute="bottom" constant="50" id="uwg-2C-R9t"/>
-                            <constraint firstItem="gkn-Gf-7Ub" firstAttribute="top" secondItem="7Sr-Ty-PuV" secondAttribute="bottom" constant="50" id="xrr-Gb-ku4"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -111,4 +98,9 @@
             <point key="canvasLocation" x="349" y="-142"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

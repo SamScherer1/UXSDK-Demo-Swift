@@ -45,6 +45,6 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController {
     // We are going to add focus adjustment to the default view.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ProductCommunicationService.shared.registerWithProduct()
     }
 }
