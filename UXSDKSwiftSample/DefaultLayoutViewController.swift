@@ -37,7 +37,6 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     fileprivate let useDebugMode = true
     fileprivate let bridgeIP = "192.168.128.169"
     
-    // We are going to add focus adjustment to the default view.
     override func viewDidLoad() {
         super.viewDidLoad()
         DJISDKManager.registerApp(with: self)
