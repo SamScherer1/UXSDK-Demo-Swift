@@ -40,24 +40,7 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     // We are going to add focus adjustment to the default view.
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerWithProduct()
-    }
-    
-    //MARK: - Start Registration
-    func registerWithProduct() {
-        guard
-            let path = Bundle.main.path(forResource: "Info", ofType: "plist"),
-            let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject>,
-            let appKey = dict["DJISDKAppKey"] as? String,
-            appKey != "PASTE_YOUR_DJI_APP_KEY_HERE"
-        else {
-                print("\n<<<ERROR: Please add DJI App Key in Info.plist after registering as developer>>>\n")
-                return
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            print("Registering Product with registration ID: \(appKey)")
-            DJISDKManager.registerApp(with: self)
-        }
+        DJISDKManager.registerApp(with: self)
     }
     
     //MARK: - Start Connecting to Product
@@ -78,10 +61,12 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     
     //MARK: - DJISDKManagerDelegate
     func appRegisteredWithError(_ error: Error?) {
-        if error == nil {
-            self.connectToProduct()
+        if let error = error {
+            print("Error Registering App: \(error.localizedDescription)")
+        } else if useDebugMode {
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: bridgeIP)
         } else {
-            print("Error Registrating App: \(String(describing: error))")
+            DJISDKManager.startConnectionToProduct()
         }
     }
     
@@ -95,9 +80,7 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
         print("Disconnected from product!");
     }
     
-    func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
-        print("didUpdateDatabaseDownloadProgress")
-    }
+    func didUpdateDatabaseDownloadProgress(_ progress: Progress) { }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent;
