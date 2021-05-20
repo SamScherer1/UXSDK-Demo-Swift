@@ -33,6 +33,10 @@ let ProductCommunicationServiceStateDidChange = "ProductCommunicationServiceStat
 // We subclass the DUXRootViewController to inherit all its behavior and add
 // a couple of widgets in the storyboard.
 class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManagerDelegate {
+    
+    fileprivate let useDebugMode = true
+    fileprivate let bridgeIP = "192.168.128.169"
+    
     // We are going to add focus adjustment to the default view.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,53 +55,49 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
                 return
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            NSLog("Registering Product with registration ID: \(appKey)")
+            print("Registering Product with registration ID: \(appKey)")
             DJISDKManager.registerApp(with: self)
         }
     }
     
     //MARK: - Start Connecting to Product
     open func connectToProduct() {
-        NSLog("Connecting to product...")
-        let startedResult = DJISDKManager.startConnectionToProduct()
-        
-        if startedResult {
-            NSLog("Connecting to product started successfully!")
+        print("Connecting to product...")
+        if useDebugMode {
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: bridgeIP)
         } else {
-            NSLog("Connecting to product failed to start!")
+            let startedResult = DJISDKManager.startConnectionToProduct()
+            
+            if startedResult {
+                print("Connecting to product started successfully!")
+            } else {
+                print("Connecting to product failed to start!")
+            }
         }
     }
-    
-//    public func disconnectProduct() {
-//        DJISDKManager.stopConnectionToProduct()
-//
-//        // This is a little cheat because sdkmanager is not properly disconnecting the product.
-//        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "ProductCommunicationManagerStateDidChange")))
-//    }
     
     //MARK: - DJISDKManagerDelegate
     func appRegisteredWithError(_ error: Error?) {
         if error == nil {
             self.connectToProduct()
         } else {
-            NSLog("Error Registrating App: \(String(describing: error))")
+            print("Error Registrating App: \(String(describing: error))")
         }
     }
     
     func productConnected(_ product: DJIBaseProduct?) {
         if product != nil {
-            NSLog("Connection to new product succeeded!")
+            print("Connection to new product succeeded!")
         }
     }
 
     func productDisconnected() {
-        NSLog("Disconnected from product!");
+        print("Disconnected from product!");
     }
     
     func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
         print("didUpdateDatabaseDownloadProgress")
     }
-    
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent;
