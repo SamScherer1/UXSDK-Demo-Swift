@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  UXSDK Sample
+//  UXSDKSwiftSample
 //
-//  Copyright © 2016 DJI. All rights reserved.
+//  Copyright © 2021 RIIS. All rights reserved.
 //
 
 import UIKit
