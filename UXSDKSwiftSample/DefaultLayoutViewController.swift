@@ -19,7 +19,16 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Please enter your App Key in the info.plist file.
         DJISDKManager.registerApp(with: self)
+    }
+    
+    func showAlertViewWith(message: String) {
+        let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title:"OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Start Connecting to Product
@@ -41,12 +50,11 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     //MARK: - DJISDKManagerDelegate
     func appRegisteredWithError(_ error: Error?) {
         if let error = error {
-            print("Error Registering App: \(error.localizedDescription)")
-        } else if useDebugMode {
-            DJISDKManager.enableBridgeMode(withBridgeAppIP: bridgeIP)
-        } else {
-            DJISDKManager.startConnectionToProduct()
+            self.showAlertViewWith(message:"Error Registering App: \(error.localizedDescription)")
+            return
         }
+        self.showAlertViewWith(message: "Registration Success")
+        self.connectToProduct()
     }
     
     func productConnected(_ product: DJIBaseProduct?) {
@@ -56,12 +64,12 @@ class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManager
     }
 
     func productDisconnected() {
-        print("Disconnected from product!");
+        print("Disconnected from product!")
     }
     
     func didUpdateDatabaseDownloadProgress(_ progress: Progress) { }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent;
+        return .lightContent
     }
 }
