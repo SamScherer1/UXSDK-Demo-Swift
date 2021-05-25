@@ -14,7 +14,7 @@ let ProductCommunicationServiceStateDidChange = "ProductCommunicationServiceStat
 // a couple of widgets in the storyboard.
 class DefaultLayoutViewController: DUXDefaultLayoutViewController, DJISDKManagerDelegate {
     
-    fileprivate let useDebugMode = true
+    fileprivate let useDebugMode = false
     fileprivate let bridgeIP = "192.168.128.169"
     
     override func viewDidLoad() {
