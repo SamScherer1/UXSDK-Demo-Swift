@@ -57,7 +57,9 @@ installed.
 
 ## Tutorial
 
-For this demo's tutorial: **iOS Bridge App Tutorial**, please refer to <https://developer.dji.com/mobile-sdk/documentation/ios-tutorials/BridgeAppDemo.html>.
+Here's this demo's [tutorial](https://github.com/SamScherer1/SwiftDJITutorials/blob/master/source/ios-tutorials/UXSDKDemo.md).
+
+Here's a [version using Objective C](https://developer.dji.com/mobile-sdk/documentation/ios-tutorials/UXSDKDemo.html).
 
 The tutorial is currently only available in Objective C, but there are plans to create a Swift version.
 
